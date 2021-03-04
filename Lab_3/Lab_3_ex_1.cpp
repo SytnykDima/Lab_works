@@ -6,8 +6,7 @@
 using namespace std;
 
 void cycle_for() {
-    int mode, i = 0, n;
-    n = 6;
+    int mode, i = 0, n = 6;
     float a, b, z, y;
     
     a = 0.8;
@@ -32,7 +31,7 @@ void cycle_for() {
         cout << "x = " << x[i] << "\t\ty = " << y << endl;
     }
 }
-
+////////////////////////////
 void cycle_while() {
     int mode, i = 0, n;
     n = 6;
@@ -62,7 +61,7 @@ void cycle_while() {
         i += 1;
     }
 }
-
+////////////////////////////
 void cycle_do_while() {
     int mode, i = 0, n;
     n = 6;
@@ -78,8 +77,6 @@ void cycle_do_while() {
     
     i = 0;
     do {
-        z = exp(x[i]);
-        
         if (x[i] < pow(a, 3)) {
             y = a * pow(sin(x[i]), 2.5) + b * cos(z*x[i] + a);
         }
@@ -95,25 +92,30 @@ void cycle_do_while() {
     }
     while(i < n);
 }
-
+///////////////////////////////////////////////////////////////
 int main()
 {
     int mode, i = 0, n;
     n = 6;
     float x[n], a, b, z, y;
+    bool wrong_num;
     
     for (i = 0; i < n; i++) {
         x[i] = 0;
     }
     
     system ("CLS");
-    cout << "1 — cycle for;\t2 — cycle while;\t3 — cycle do while\nSelect a cycle: ";
-    cin >> mode;
-    switch(mode) {
-        case 1: cout << "You have selected a cycle: for!" << endl; cycle_for(); break;
-        case 2: cout << "You have selected a cycle: while!" << endl; cycle_while(); break;
-        case 3: cout << "You have selected a cycle: do while!" << endl; cycle_do_while(); break;
+    do {
+        cout << "1 — cycle for;\t2 — cycle while;\t3 — cycle do while\nChoose cycle: ";
+        cin >> mode;
+        switch(mode) {
+            case 1: cout << "You have selected a cycle for!" << endl; cycle_for(); wrong_num = false; break;
+            case 2: cout << "You have selected a cycle while!" << endl; cycle_while(); wrong_num = false; break;
+            case 3: cout << "You have selected a cycle do while!" << endl; cycle_do_while(); wrong_num = false; break;
+            default: cout << "You have entered an incorrect number!\nTry again!!" << endl; wrong_num = true;
+        }
     }
+    while (wrong_num);
     
     system ("pause");
     return 0;
